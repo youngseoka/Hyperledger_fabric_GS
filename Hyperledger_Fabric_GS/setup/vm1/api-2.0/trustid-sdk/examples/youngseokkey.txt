@@ -1,0 +1,34 @@
+[fabric@static examples]$ tsc getting-started.ts && node getting-started.js
+Wallet {
+  keystore: FileKeystore {
+    keystore: {},
+    WALLET_SRCS: [ 'file', 'empty', 'localStorage' ],
+    dir: './keystore/keystore'
+  },
+  networks: {}
+}
+[*] Generated DID:
+ DID {
+  ALGO_TYPES: [ 'RSA', 'EC', 'oct' ],
+  id: 'did:vtn:trustid:183c5d2e1eec7d8a81d36131cd8eb29ed58800e76e22e8d9a22c116572d8e126',
+  type: 'RSA',
+  controller: 'test',
+  access: 0,
+  privkey: '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',
+  pubkey: '-----BEGIN PUBLIC KEY-----\r\n' +
+    'MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEA5pq5uWcNRgJMBAVmYUEM\r\n' +
+    'UMixUcsj44k23EDojupbfW/JFl9WLVheBCLXNch/CSbWqVE5yjKbqJwreCuGxZgG\r\n' +
+    '9y7eu9BaF0yaaPUXW44MavGIKCYxQ+CfZAIOZdQFG7yTAMEkliOs4j2cHwJCd4i1\r\n' +
+    'L0DX8DKxWzQQGcpo8dWEJ/0ByI334jykKla/DNNRfJgTs9lsEnYoM0FsvDvd1UlP\r\n' +
+    '3SV9QoqyYvUVKpgqYAuA5t1c3mVtlMLn36V4eyRqIQzMHmwQcUHfcnjWT1jsrZBx\r\n' +
+    '4gqP2k9uBN3fwkiCwCWQHVM7S+8uidRriLq9mTZ+ffCTNbe0EecL6DW6MDWiZqjC\r\n' +
+    'swIDAQAB\r\n' +
+    '-----END PUBLIC KEY-----\r\n',
+  unlockedKey: null,
+  unlockTimestamp: 0
+}
+[fabric@static examples]$ ls
+README.md  getting-started.js  getting-started.ts  keystore
+[fabric@static examples]$ vi keystore
+[fabric@static examples]$ vi youngseokkey.txt
+

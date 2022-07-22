@@ -1,0 +1,5 @@
+Installed chaincodes on peer:
+Package ID: save_ipfs_hash_1:7dba7153f074142bc908486dbbd6728bf0ff4335d698920ec86131af24fdea77, Label: save_ipfs_hash_1
+Package ID: token_erc721_1:918db6081c8af36c71901539fa39e4e65d69363816ccfba7348642f70da51d2f, Label: token_erc721_1
+Package ID: interval_random_1:38bb5dfa6670139bafa4eb50d4498839bddfaa5f371e0ae960442bb4c13ef1c2, Label: interval_random_1
+Package ID: trustID_1:225efa32238597ca5d42223284f02afe68719364ec3f11db61f468ad1602185d, Label: trustID_1

@@ -1,0 +1,16 @@
+# SPDX-License-Identifier: Apache-2.0
+version: '2.1'
+
+
+networks:
+  artifacts_test:
+
+services:
+  testexplorer:
+    image: testexplorer
+    container_name: testexplorer
+    hostname: testexplorer
+    ports:
+      - 3356:3356
+    networks:
+      - artifacts_test

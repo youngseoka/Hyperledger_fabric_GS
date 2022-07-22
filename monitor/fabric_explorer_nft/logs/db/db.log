@@ -1,0 +1,19 @@
+[2022-03-16T10:43:30.504] [INFO] PgService - SSL to Postgresql disabled
+[2022-03-16T10:43:30.504] [INFO] PgService - connecting to Postgresql postgres://hppoc:******@211.232.75.182:5432/fabricexplorer
+[2022-03-16T10:45:39.147] [ERROR] PgService - error when connecting to db: Error: connect ETIMEDOUT 211.232.75.182:5432
+    at TCPConnectWrap.afterConnect [as oncomplete] (net.js:1137:16) {
+  errno: 'ETIMEDOUT',
+  code: 'ETIMEDOUT',
+  syscall: 'connect',
+  address: '211.232.75.182',
+  port: 5432
+}
+[2022-03-16T10:45:41.153] [ERROR] PgService - error when connecting to db: TypeError: Cannot read property 'on' of undefined
+    at Timeout.<anonymous> (/fabric_explorer_nft/dist/persistence/postgreSQL/PgService.js:122:29)
+    at Generator.next (<anonymous>)
+    at /fabric_explorer_nft/dist/persistence/postgreSQL/PgService.js:30:71
+    at new Promise (<anonymous>)
+    at __awaiter (/fabric_explorer_nft/dist/persistence/postgreSQL/PgService.js:26:12)
+    at Timeout.handleDisconnect [as _onTimeout] (/fabric_explorer_nft/dist/persistence/postgreSQL/PgService.js:120:16)
+    at listOnTimeout (internal/timers.js:549:17)
+    at processTimers (internal/timers.js:492:7)

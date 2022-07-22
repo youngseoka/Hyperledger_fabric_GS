@@ -1,0 +1,157 @@
+version: "2"
+
+networks:
+  test:
+
+services:
+  couchdb6:
+    container_name: couchdb6
+    image: hyperledger/fabric-couchdb
+    environment:
+      - COUCHDB_USER=
+      - COUCHDB_PASSWORD=
+      - TZ=Asia/Seoul
+    ports:
+      - 19984:5984
+    volumes:
+      - /home/fabric/Hyperledger_Fabric_NFT_TEST/couchdb/data7/:/opt/couchdb/data/
+    networks:
+      - test
+
+  couchdb7:
+    container_name: couchdb7
+    image: hyperledger/fabric-couchdb
+    environment:
+      - COUCHDB_USER=
+      - COUCHDB_PASSWORD=
+      - TZ=Asia/Seoul
+    ports:
+      - 20984:5984
+    volumes:
+      - /home/fabric/Hyperledger_Fabric_NFT_TEST/couchdb/data8/:/opt/couchdb/data/
+    networks:
+      - test
+
+  peer0.org4.example.com:
+    container_name: peer0.org4.example.com
+    extends:
+      file: base.yaml
+      service: peer-base
+    environment:
+      - FABRIC_LOGGING_SPEC=DEBUG
+      - ORDERER_GENERAL_LOGLEVEL=DEBUG
+      - CORE_PEER_LOCALMSPID=Org4MSP
+      - CORE_VM_DOCKER_HOSTCONFIG_NETWORKMODE=artifacts_test
+      - CORE_PEER_ID=peer0.org4.example.com
+      - CORE_PEER_ADDRESS=peer0.org4.example.com:21051
+      - CORE_PEER_LISTENADDRESS=0.0.0.0:21051
+      - CORE_PEER_CHAINCODEADDRESS=peer0.org4.example.com:21052
+      - CORE_PEER_CHAINCODELISTENADDRESS=0.0.0.0:21052
+      # Exposed for discovery Service
+      - CORE_PEER_GOSSIP_EXTERNALENDPOINT=peer0.org4.example.com:21051
+      - CORE_PEER_GOSSIP_BOOTSTRAP=peer1.org4.example.com:22051
+      - CORE_LEDGER_STATE_STATEDATABASE=CouchDB
+      - CORE_LEDGER_STATE_COUCHDBCONFIG_COUCHDBADDRESS=couchdb6:5984
+      - CORE_LEDGER_STATE_COUCHDBCONFIG_USERNAME=
+      - CORE_LEDGER_STATE_COUCHDBCONFIG_PASSWORD=
+      - CORE_METRICS_PROVIDER=prometheus
+      - CORE_OPERATIONS_LISTENADDRESS=0.0.0.0:9740
+      - CORE_PEER_TLS_ENABLED=true
+      - CORE_PEER_TLS_CERT_FILE=/etc/hyperledger/crypto/peer/tls/server.crt
+      - CORE_PEER_TLS_KEY_FILE=/etc/hyperledger/crypto/peer/tls/server.key
+      - CORE_PEER_TLS_ROOTCERT_FILE=/etc/hyperledger/crypto/peer/tls/ca.crt
+      - CORE_PEER_MSPCONFIGPATH=/etc/hyperledger/crypto/peer/msp
+      - TZ=Asia/Seoul
+    depends_on:
+      - couchdb6
+    ports:
+      - 21051:21051
+    volumes:
+      - ./crypto-config/peerOrganizations/org4.example.com/peers/peer0.org4.example.com/msp:/etc/hyperledger/crypto/peer/msp
+      - ./crypto-config/peerOrganizations/org4.example.com/peers/peer0.org4.example.com/tls:/etc/hyperledger/crypto/peer/tls
+      - /var/run/:/host/var/run/
+      - ./:/etc/hyperledger/channel/
+    networks:
+      - test
+    extra_hosts:
+                - "orderer.example.com:211.232.75.182"
+                - "orderer2.example.com:211.232.75.182"
+                - "orderer3.example.com:211.232.75.182"
+                - "peer0.org1.example.com:211.232.75.182"
+                - "peer1.org1.example.com:211.232.75.182"
+                - "peer0.org2.example.com:211.232.75.182"
+                - "peer1.org2.example.com:211.232.75.182"
+                - "peer0.org3.example.com:211.232.75.182"
+                - "peer1.org3.example.com:211.232.75.182"
+                - "peer0.org4.example.com:211.232.75.182"
+                - "peer1.org4.example.com:211.232.75.182"
+
+  peer1.org4.example.com:
+    container_name: peer1.org4.example.com
+    extends:
+      file: base.yaml
+      service: peer-base
+    environment:
+      - FABRIC_LOGGING_SPEC=DEBUG
+      - ORDERER_GENERAL_LOGLEVEL=debug
+      - CORE_PEER_LOCALMSPID=Org4MSP
+      - CORE_VM_DOCKER_HOSTCONFIG_NETWORKMODE=artifacts_test
+      - CORE_PEER_ID=peer1.org4.example.com
+      - CORE_PEER_ADDRESS=peer1.org4.example.com:22051
+      - CORE_PEER_LISTENADDRESS=0.0.0.0:22051
+      - CORE_PEER_CHAINCODEADDRESS=peer1.org1.example.com:22052
+      - CORE_PEER_CHAINCODELISTENADDRESS=0.0.0.0:22052
+      # Exposed for discovery Service
+      - CORE_PEER_GOSSIP_EXTERNALENDPOINT=peer1.org4.example.com:22051
+      - CORE_PEER_GOSSIP_BOOTSTRAP=peer0.org4.example.com:21051
+      - CORE_LEDGER_STATE_STATEDATABASE=CouchDB
+      - CORE_LEDGER_STATE_COUCHDBCONFIG_COUCHDBADDRESS=couchdb7:5984
+      - CORE_LEDGER_STATE_COUCHDBCONFIG_USERNAME=
+      - CORE_LEDGER_STATE_COUCHDBCONFIG_PASSWORD=
+      - CORE_METRICS_PROVIDER=prometheus
+      - CORE_OPERATIONS_LISTENADDRESS=0.0.0.0:9741
+      - CORE_PEER_TLS_ENABLED=true
+      - CORE_PEER_TLS_CERT_FILE=/etc/hyperledger/crypto/peer/tls/server.crt
+      - CORE_PEER_TLS_KEY_FILE=/etc/hyperledger/crypto/peer/tls/server.key
+      - CORE_PEER_TLS_ROOTCERT_FILE=/etc/hyperledger/crypto/peer/tls/ca.crt
+      - CORE_PEER_MSPCONFIGPATH=/etc/hyperledger/crypto/peer/msp
+      - TZ=Asia/Seoul
+    ports:
+      - 22051:22051
+    volumes:
+      - ./crypto-config/peerOrganizations/org4.example.com/peers/peer1.org4.example.com/msp:/etc/hyperledger/crypto/peer/msp
+      - ./crypto-config/peerOrganizations/org4.example.com/peers/peer1.org4.example.com/tls:/etc/hyperledger/crypto/peer/tls
+      - /var/run/:/host/var/run/
+      - ./:/etc/hyperledger/channel/
+    networks:
+      - test
+    extra_hosts:
+                - "orderer.example.com:211.232.75.182"
+                - "orderer2.example.com:211.232.75.182"
+                - "orderer3.example.com:211.232.75.182"
+                - "peer0.org1.example.com:211.232.75.182"
+                - "peer1.org1.example.com:211.232.75.182"
+                - "peer0.org2.example.com:211.232.75.182"
+                - "peer1.org2.example.com:211.232.75.182"
+                - "peer0.org3.example.com:211.232.75.182"
+                - "peer1.org3.example.com:211.232.75.182"
+                - "peer0.org4.example.com:211.232.75.182"
+                - "peer1.org4.example.com:211.232.75.182"
+
+  prometheus_org4:
+      container_name: prometheus_org4
+      image: prom/prometheus:latest
+      ports:
+        - 21090:21090
+      command:
+        - '--config.file=/etc/prometheus/prometheus.yml'
+        - '--web.listen-address=0.0.0.0:21090'
+      volumes:
+        - ./prometheus.yml:/etc/prometheus/prometheus.yml
+      environment:
+        - TZ=Asia/Seoul
+      networks:
+        - test
+      depends_on:
+        - peer0.org4.example.com
+        - peer1.org4.example.com

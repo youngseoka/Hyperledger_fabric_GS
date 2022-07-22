@@ -1,0 +1,21 @@
+[2022-02-21T00:00:21.345] [DEBUG] PgService -  the getRowsBySQlCase  select * from channel where name=$1 and channel_genesis_hash=$2 and network_name = $3 
+[2022-02-21T00:00:51.445] [DEBUG] PgService -  the getRowsBySQlCase  select * from channel where name=$1 and channel_genesis_hash=$2 and network_name = $3 
+[2022-02-21T00:00:55.050] [DEBUG] PgService -  the getRowsBySQlQuery SELECT
+[2022-02-21T00:01:21.523] [DEBUG] PgService -  the getRowsBySQlCase  select * from channel where name=$1 and channel_genesis_hash=$2 and network_name = $3 
+[2022-02-21T00:01:51.611] [DEBUG] PgService -  the getRowsBySQlCase  select * from channel where name=$1 and channel_genesis_hash=$2 and network_name = $3 
+[2022-02-21T00:01:55.052] [DEBUG] PgService -  the getRowsBySQlQuery SELECT
+[2022-02-21T00:02:21.691] [DEBUG] PgService -  the getRowsBySQlCase  select * from channel where name=$1 and channel_genesis_hash=$2 and network_name = $3 
+[2022-02-21T00:02:51.770] [DEBUG] PgService -  the getRowsBySQlCase  select * from channel where name=$1 and channel_genesis_hash=$2 and network_name = $3 
+[2022-02-21T00:02:55.052] [DEBUG] PgService -  the getRowsBySQlQuery SELECT
+[2022-02-21T00:03:21.881] [DEBUG] PgService -  the getRowsBySQlCase  select * from channel where name=$1 and channel_genesis_hash=$2 and network_name = $3 
+[2022-02-21T00:03:51.964] [DEBUG] PgService -  the getRowsBySQlCase  select * from channel where name=$1 and channel_genesis_hash=$2 and network_name = $3 
+[2022-02-21T00:03:55.053] [DEBUG] PgService -  the getRowsBySQlQuery SELECT
+[2022-02-21T00:04:22.040] [DEBUG] PgService -  the getRowsBySQlCase  select * from channel where name=$1 and channel_genesis_hash=$2 and network_name = $3 
+[2022-02-21T00:04:52.115] [DEBUG] PgService -  the getRowsBySQlCase  select * from channel where name=$1 and channel_genesis_hash=$2 and network_name = $3 
+[2022-02-21T00:04:55.054] [DEBUG] PgService -  the getRowsBySQlQuery SELECT
+[2022-02-21T00:05:22.189] [DEBUG] PgService -  the getRowsBySQlCase  select * from channel where name=$1 and channel_genesis_hash=$2 and network_name = $3 
+[2022-02-21T00:05:52.278] [DEBUG] PgService -  the getRowsBySQlCase  select * from channel where name=$1 and channel_genesis_hash=$2 and network_name = $3 
+[2022-02-21T00:05:55.057] [DEBUG] PgService -  the getRowsBySQlQuery SELECT
+[2022-02-21T00:06:22.358] [DEBUG] PgService -  the getRowsBySQlCase  select * from channel where name=$1 and channel_genesis_hash=$2 and network_name = $3 
+[2022-02-21T00:06:52.443] [DEBUG] PgService -  the getRowsBySQlCase  select * from channel where name=$1 and channel_genesis_hash=$2 and network_name = $3 
+[2022-02-21T00:06:55.056] [DEBUG] PgService -  the getRowsBySQlQuery SELECT

@@ -1,0 +1,7 @@
+{
+	"sslEnabled": false,
+	"sslCertsPath": "ssl-certs",
+	"host": "211.232.75.182",
+	"port": "3356",
+	"license": "Apache-2.0"
+}

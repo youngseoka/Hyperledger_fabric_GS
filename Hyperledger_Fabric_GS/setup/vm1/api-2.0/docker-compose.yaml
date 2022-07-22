@@ -1,0 +1,46 @@
+version: "2.1"
+
+networks:
+  test:
+
+services:
+  api:
+    image: api:1.0
+    build: .
+    healthcheck:
+      test: "curl --location --request POST '211.232.75.182:4000/API_Health_check'"
+      interval: 30s
+      timeout: 10s
+      retries: 5
+    networks:
+      - test
+    restart: always
+    ports:
+      - 4000:4000
+    volumes:
+      - ../crypto-config/:/etc/hyperledger/vm1/
+      - ../../vm4/crypto-config/:/etc/hyperledger/vm4/
+      - ./:/usr/src/app/
+      - /usr/src/app/node_modules
+    environment:
+      - TZ=Asia/Seoul
+    #  - DISCOVERY_AS_LOCALHOST=false
+    extra_hosts:
+                - "orderer.example.com:211.232.75.182"
+                - "orderer2.example.com:211.232.75.182"
+                - "orderer3.example.com:211.232.75.182"
+                - "peer0.org1.example.com:211.232.75.182"
+                - "peer1.org1.example.com:211.232.75.182"
+                - "peer0.org2.example.com:211.232.75.182"
+                - "peer1.org2.example.com:211.232.75.182"
+                - "peer0.org3.example.com:211.232.75.182"
+                - "peer1.org3.example.com:211.232.75.182"
+                - "peer0.org4.example.com:211.232.75.182"
+                - "peer1.org4.example.com:211.232.75.182"
+  autoheal:
+    image: willfarrell/autoheal
+    restart: always
+    environment:
+      - AUTOHEAL_CONTAINER_LABEL=all
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock

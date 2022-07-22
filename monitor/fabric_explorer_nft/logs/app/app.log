@@ -1,0 +1,28 @@
+[2022-03-16T10:43:30.502] [DEBUG] main - false ssl-certs /fabric_explorer_nft/dist/ssl-certs
+[2022-03-16T10:45:39.214] [DEBUG] Platform - ******* Initialization started for hyperledger fabric platform ******
+[2022-03-16T10:45:39.214] [DEBUG] Platform - ******* Initialization started for hyperledger fabric platform ******, {
+  'test-network': {
+    name: 'Test Network',
+    profile: './connection-profile/test-network.json'
+  }
+}
+[2022-03-16T10:45:39.214] [DEBUG] Platform - Setting admin organization enrolment files
+[2022-03-16T10:45:39.214] [INFO] Platform -  network_config.id  test-network  network_config.profile  ./connection-profile/test-network.json
+[2022-03-16T10:45:39.214] [DEBUG] Platform - Creating network client [test-network] >>  {
+  name: 'Test Network',
+  profile: './connection-profile/test-network.json'
+}
+[2022-03-16T10:45:39.222] [DEBUG] User - User : exploreradmin
+[2022-03-16T10:45:41.157] [ERROR] main - <<<<<<<<<<<<<<<<<<<<<<<<<< Explorer Error >>>>>>>>>>>>>>>>>>>>>
+[2022-03-16T10:45:41.157] [ERROR] main - TypeError [ERR_INVALID_CALLBACK]: Callback must be a function. Received undefined
+    at setTimeout (timers.js:122:11)
+    at Timeout.<anonymous> (/fabric_explorer_nft/dist/persistence/postgreSQL/PgService.js:141:21)
+    at Generator.next (<anonymous>)
+    at /fabric_explorer_nft/dist/persistence/postgreSQL/PgService.js:30:71
+    at new Promise (<anonymous>)
+    at __awaiter (/fabric_explorer_nft/dist/persistence/postgreSQL/PgService.js:26:12)
+    at Timeout.handleDisconnect [as _onTimeout] (/fabric_explorer_nft/dist/persistence/postgreSQL/PgService.js:120:16)
+    at listOnTimeout (internal/timers.js:549:17)
+    at processTimers (internal/timers.js:492:7) {
+  code: 'ERR_INVALID_CALLBACK'
+}
